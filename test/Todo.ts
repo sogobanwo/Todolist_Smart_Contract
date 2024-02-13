@@ -34,4 +34,14 @@ describe("Todolist", function () {
       expect(todo.length).to.equal(0);
     });
   });
+
+  describe("Update the isDone status", function () {
+    it("Should return the opposite of the boolean it is", async function () {
+      const { deployTodolist } = await loadFixture(deployTodoContract);
+      const add = await deployTodolist.addTodo("sogo", "Sogo is a boy");
+      const todo = await deployTodolist.updateIsDone(1);
+      const allTodo = await deployTodolist.getAllTodos();
+      expect(allTodo[0].isDone).to.equal(true);
+    });
+  });
 });
