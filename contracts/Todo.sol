@@ -23,8 +23,36 @@ contract Todolist {
     }
 
 
+    
+    function updateIsDone(uint _id) external {
+        for (uint i = 0 ; i < allTodo.length; i++) 
+        {
+            if (allTodo[i].id == _id) {
+                allTodo[i].isDone = !(allTodo[i].isDone);
+            }
+        }
+    }
 
+    function deleteTodoDetail(uint _id) external  {
+        for (uint i = 0 ; i < allTodo.length; i++) 
+        {
+            if (allTodo[i].id == _id) {
+              delete allTodo[i];
+            }
+        }
+        revert("Todo with the specified ID not found");
 
+    }
+
+    function updateTodoDetail(uint _id, string memory _title, string memory  _description) external {
+        for (uint i = 0 ; i < allTodo.length; i++) 
+        {
+            if (allTodo[i].id == _id) {
+                allTodo[i].title = _title;
+                allTodo[i].description = _description;
+            }
+        }
+    }
 
 
     
