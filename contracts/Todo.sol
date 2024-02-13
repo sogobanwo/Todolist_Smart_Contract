@@ -47,15 +47,6 @@ contract Todolist {
         return allTodo;
     }
 
-    function getOneTodos(uint _id) external view returns (Todo[] memory) {
-         for (uint i = 0; i < allTodo.length; i++) {
-            if (allTodo[i].id == _id) {
-                return allTodo[i];
-            }
-        }
-        revert("Todo with the specified ID not found");
-    }
-
     function deleteAllTodos() external {
         delete allTodo;
     }
