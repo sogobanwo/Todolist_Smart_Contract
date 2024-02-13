@@ -21,4 +21,18 @@ contract Todolist {
         allTodo.push(eachTodo);
         id++;
     }
+
+
+
+
+
+
+    
+    function getAllTodos() external view returns (Todo[] memory){
+        return  allTodo;
+    }
+
+    function deleteAllTodos() external {
+        delete allTodo;
+    }
 }
